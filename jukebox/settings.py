@@ -131,4 +131,5 @@ STATICFILES_DIRS = (
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-SLACK_TEAM = 'CBQG9DBBQ'
+SLACK_CHANNEL = 'BQG9DBBQ'
+

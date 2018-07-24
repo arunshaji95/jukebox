@@ -20,8 +20,7 @@ class Events(APIView):
         if slack_message.get('type') == 'url_verification':
             return Response(data=slack_message,
                             status=status.HTTP_200_OK)
-        print(slack_message)
-        if slack_message.get('team_id') == settings.SLACK_TEAM:
+        if slack_message.get('channel') == settings.SLACK_CHANNEL:
             self.process_message(slack_message)
         return Response(status=status.HTTP_200_OK)
 
