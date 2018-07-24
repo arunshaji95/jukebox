@@ -1,1 +1,1 @@
-web: gunicorn juebox.wsgi --log-file -
+web: gunicorn jukebox.wsgi --log-file -
