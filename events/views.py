@@ -20,6 +20,8 @@ class Events(APIView):
         if slack_message.get('type') == 'url_verification':
             return Response(data=slack_message,
                             status=status.HTTP_200_OK)
+        print(settings.SLACK_CHANNEL)
+        print(slack_message.get('channel'))
         if slack_message.get('channel') == settings.SLACK_CHANNEL:
             self.process_message(slack_message)
         print(slack_message)
@@ -27,6 +29,6 @@ class Events(APIView):
 
     @staticmethod
     def process_message(message):
-        print(message)
+        print("Inside process_message")
         # TODO: implement logic for parsing message
         pass
