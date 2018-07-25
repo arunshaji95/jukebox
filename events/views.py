@@ -31,5 +31,6 @@ class Events(APIView):
     @staticmethod
     def process_message(message):
         print("Inside process_message")
+        print(message)
         # TODO: implement logic for parsing message
         pass
