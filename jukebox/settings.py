@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'events.apps.EventsConfig'
+    'events.apps.EventsConfig',
+    'application.apps.ApplicationConfig',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,8 @@ STATICFILES_DIRS = (
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 SLACK_CHANNEL = 'CBQG9DBBQ'
+
+try:
+    from jukebox.local_settings import DATABASES
+except ImportError:
+    pass

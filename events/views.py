@@ -1,9 +1,11 @@
 import os
 
 from django.conf import settings
-from rest_framework.views import APIView
 from rest_framework import generics, status
 from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from application.models import Link
 
 SLACK_VERIFICATION_TOKEN = os.environ.get('SLACK_VERIFICATION_TOKEN', '')
 
@@ -30,7 +32,11 @@ class Events(APIView):
 
     @staticmethod
     def process_message(message):
-        print("Inside process_message")
-        print(message)
-        # TODO: implement logic for parsing message
-        pass
+        try:
+            attachments = message['event']['message']['attachments']
+        except KeyError:
+            return
+        for attachment in attachments:
+            if attachment['service_name'] == 'YouTube':
+                url = attachment['title_link']
+                link, created = Link.objects.get_or_create(url=url)
