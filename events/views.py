@@ -22,6 +22,7 @@ class Events(APIView):
                             status=status.HTTP_200_OK)
         if slack_message.get('channel') == settings.SLACK_CHANNEL:
             self.process_message(slack_message)
+        print(slack_message)
         return Response(status=status.HTTP_200_OK)
 
     @staticmethod
