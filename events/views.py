@@ -20,11 +20,16 @@ class Events(APIView):
         if slack_message.get('type') == 'url_verification':
             return Response(data=slack_message,
                             status=status.HTTP_200_OK)
-        if slack_message.get('team_id') == settings.SLACK_TEAM:
-            self.process_message(slack_message)
+        try:
+            channel = slack_message['event']['channel']
+            if channel == settings.SLACK_CHANNEL:
+                self.process_message(slack_message)
+        except KeyError:
+            pass
         return Response(status=status.HTTP_200_OK)
 
     @staticmethod
     def process_message(message):
+        print("Inside process_message")
         # TODO: implement logic for parsing message
         pass
