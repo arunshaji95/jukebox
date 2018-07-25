@@ -22,7 +22,7 @@ class Events(APIView):
                             status=status.HTTP_200_OK)
         try:
             channel = slack_message['event']['channel']
-            if 'channel' == settings.SLACK_CHANNEL:
+            if channel == settings.SLACK_CHANNEL:
                 self.process_message(slack_message)
         except KeyError:
             pass
