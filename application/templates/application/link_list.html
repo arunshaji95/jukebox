@@ -1,0 +1,10 @@
+{% extends 'application/base.html' %}
+{% block content %}
+    <h2>Available Urls</h2>
+    {% for link in object_list %}
+        <iframe width="560" height="315"
+                src="{{ link.url }}" frameborder="0" allow="autoplay; encrypted-media"
+                allowfullscreen>
+        </iframe>   
+    {% endfor %}
+{% endblock content %}
