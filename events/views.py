@@ -40,4 +40,8 @@ class Events(APIView):
             if attachment['service_name'] == 'YouTube':
                 url = attachment['title_link']
                 video_html = attachment['video_html']
-                link, created = Link.objects.get_or_create(url=url, video_html=video_html)
+                original_url = attachment['original_url']
+                embed_url = original_url.replace('watch?v=', 'embed/')
+                link, created = Link.objects.get_or_create(url=url, 
+                                                           video_html=video_html,
+                                                           embed_url=embed_url)

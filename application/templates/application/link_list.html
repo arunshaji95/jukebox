@@ -2,6 +2,7 @@
 {% block content %}
     <h2>Available YouTube Links</h2>
     {% for link in object_list %}
-        {{ link.video_html| safe }}
+        <iframe width="560" height="315" src="{{ link.embed_url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>{{ link.video_html| safe }}
+        </iframe>
     {% endfor %}
 {% endblock content %}

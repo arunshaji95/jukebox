@@ -11,6 +11,7 @@ class Link(models.Model):
     created = models.DateTimeField(_('created at'), auto_now_add=True)
     last_updated = models.DateTimeField(_('laste updated'), auto_now=True)
     video_html = models.CharField(_('video HTML'), max_length=255)
+    embed_url = models.URLField(_('embed url'))
 
     def __str__(self):
         return '{} with {} votes'.format(self.url, self.votes)
