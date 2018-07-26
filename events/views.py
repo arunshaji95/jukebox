@@ -39,4 +39,5 @@ class Events(APIView):
         for attachment in attachments:
             if attachment['service_name'] == 'YouTube':
                 url = attachment['title_link']
-                link, created = Link.objects.get_or_create(url=url)
+                video_html = attachment['video_html']
+                link, created = Link.objects.get_or_create(url=url, video_html=video_html)
