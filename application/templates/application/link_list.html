@@ -3,7 +3,7 @@
     <h2>Available YouTube Links</h2>
     {% for link in object_list %}
         <iframe width="560" height="315"
-                src="{{ link.url }}&output=embed" frameborder="0" allow="autoplay; encrypted-media"
+                src="{{ link.url }}" target="_parent" frameborder="0" allow="autoplay; encrypted-media"
                 allowfullscreen>
         </iframe>   
     {% endfor %}
