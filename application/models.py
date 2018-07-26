@@ -17,4 +17,4 @@ class Link(models.Model):
         return '{} with {} votes'.format(self.url, self.votes)
 
     class Meta:
-        ordering = ['votes', '-created']
+        ordering = ['-votes', '-created']
