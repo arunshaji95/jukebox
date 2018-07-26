@@ -13,3 +13,6 @@ class Link(models.Model):
 
     def __str__(self):
         return '{} with {} votes'.format(self.url, self.votes)
+
+    class Meta:
+        ordering = ['votes', '-created']
