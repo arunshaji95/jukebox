@@ -1,0 +1,25 @@
+{% extends 'application/base.html' %}
+{% block content %}
+<form action="." method="POST" style="margin-top: 1rem">
+    {% csrf_token %}
+    {% for link in object_list %}
+        <div class="row">
+            <div class="col-md-12">
+                <input type="radio" name="video" value="{{ link.id }}">
+                <label for="video">
+                    <iframe width="560" height="315" src="{{ link.embed_url }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                    </iframe>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                {{ link.votes }} Votes
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    {% endfor %}
+    <button class="btn btn-primary" type="submit">Vote</button>
+</form>
+{% endblock content %}
