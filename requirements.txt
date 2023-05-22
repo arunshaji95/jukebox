@@ -18,7 +18,7 @@ mccabe==0.6.1
 pyee==5.0.0
 pylint==2.0.1
 pytz==2018.5
-requests==2.20.0
+requests==2.31.0
 six==1.11.0
 slackclient==1.2.1
 slackeventsapi==1.1.0
